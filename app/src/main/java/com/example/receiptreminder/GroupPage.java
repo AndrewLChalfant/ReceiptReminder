@@ -1,54 +1,34 @@
-package com.example.tabs.ui.gallery;
+package com.example.receiptreminder;
 
-import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.content.Intent;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
-import com.example.tabs.R;
-
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.ArrayList;
 
-public class GalleryFragment extends Fragment {
-
-    private GalleryViewModel galleryViewModel;
+public class GroupPage extends AppCompatActivity {
 
     private ListView groupListView;
     private HashMap<String, ArrayList<String>> groupMap;
     private static ArrayList<String> groups = new ArrayList<String>();
     private ArrayAdapter<String> adapter;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel.class);
-        final View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_group_page);
         groupMap = new HashMap<String, ArrayList<String>>();
-        groupListView = root.findViewById(com.example.tabs.R.id.groupList);
-        adapter = new ArrayAdapter<String>(root.getContext(), android.R.layout.simple_list_item_1, groups);
+        groupListView = findViewById(R.id.groupList);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, groups);
         groupListView.setAdapter(adapter);
 
-        /*Intent intent = getIntent();
+        Intent intent = getIntent();
         String groupName = intent.getStringExtra("groupname");
         if (groupName != null) {
 
@@ -62,12 +42,12 @@ public class GalleryFragment extends Fragment {
             groups.add(groupName);
             adapter.notifyDataSetChanged();
         }
-*/
+
         groupListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String groupName = (String) groupListView.getItemAtPosition(position);
-                Intent advancedGroupPage = new Intent(root.getContext(), AdvancedGroupPage.class);
+                Intent advancedGroupPage = new Intent(getApplicationContext(), AdvancedGroupPage.class);
                 advancedGroupPage.putExtra("groupName", groupName);
                 ArrayList<String> groupMembers = groupMap.get(groupName);
                 for (int i = 0; i < groupMembers.size(); i++) {
@@ -76,7 +56,11 @@ public class GalleryFragment extends Fragment {
                 startActivity(advancedGroupPage);
             }
         });
+    }
 
-        return root;
+    public void newGroup(View view) {
+        // Going to the new Group page
+        Intent intent = new Intent(getApplicationContext(), NewGroupPage.class);
+        startActivity(intent);
     }
 }
