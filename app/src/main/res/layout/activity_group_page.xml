@@ -4,43 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#84AAA6"
     tools:context=".GroupPage">
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="136dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="277dp"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Reciept Reminder"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/groups_label"
-        android:layout_width="118dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="136dp"
-        android:text="Groups"
+        android:layout_width="280dp"
+        android:layout_height="58dp"
+        android:layout_marginEnd="64dp"
+        android:fontFamily="sans-serif"
+        android:text="Group Shopping"
+        android:textAlignment="center"
         android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintHorizontal_bias="0.91"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024" />
+        app:layout_constraintVertical_bias="0.164" />
 
     <Button
         android:id="@+id/new_group"
-        android:layout_width="309dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="83dp"
+
+        android:layout_width="272dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="2dp"
+
+        android:layout_marginBottom="556dp"
+        android:fontFamily="sans-serif"
         android:onClick="newGroup"
-        android:text="New Group"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Create a Group"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/groups_label"
-        app:layout_constraintVertical_bias="0.013" />
+        app:layout_constraintTop_toBottomOf="@+id/groups_label"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ListView
         android:id="@+id/groupList"
-        android:layout_width="321dp"
-        android:layout_height="393dp"
-        android:layout_marginTop="93dp"
+        android:layout_width="331dp"
+        android:layout_height="414dp"
+        android:layout_marginBottom="16dp"
+        android:addStatesFromChildren="false"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/new_group"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/new_group"
+        app:layout_constraintVertical_bias="0.325" />
 </androidx.constraintlayout.widget.ConstraintLayout>

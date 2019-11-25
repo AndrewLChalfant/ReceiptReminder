@@ -4,7 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF84AAA6"
     tools:context=".NewGroupPage">
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="136dp"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="277dp"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Reciept Reminder"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/newGroupLabel"
@@ -12,12 +39,12 @@
         android:layout_height="wrap_content"
         android:text="New Group"
         android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.149" />
 
     <EditText
         android:id="@+id/editText"
@@ -65,15 +92,15 @@
 
     <ListView
         android:id="@+id/members"
-        android:layout_width="401dp"
-        android:layout_height="287dp"
+        android:layout_width="394dp"
+        android:layout_height="251dp"
         android:layout_marginTop="58dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/memberName"
-        app:layout_constraintVertical_bias="0.021" />
+        app:layout_constraintVertical_bias="0.011" />
 
     <Button
         android:id="@+id/done"
@@ -87,5 +114,5 @@
         app:layout_constraintHorizontal_bias="0.902"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/members"
-        app:layout_constraintVertical_bias="0.218" />
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

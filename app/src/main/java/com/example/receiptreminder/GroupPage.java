@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.ArrayList;
 
@@ -17,7 +19,10 @@ public class GroupPage extends AppCompatActivity {
     private ListView groupListView;
     private HashMap<String, ArrayList<String>> groupMap;
     private static ArrayList<String> groups = new ArrayList<String>();
+    private ArrayList<String> spinnerList;
     private ArrayAdapter<String> adapter;
+    private ArrayAdapter<String> spinnerAdapter;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,43 @@ public class GroupPage extends AppCompatActivity {
         groupListView = findViewById(R.id.groupList);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, groups);
         groupListView.setAdapter(adapter);
+        spinner = findViewById(R.id.spinner);
+
+        // Setting up spinner
+        spinnerList = new ArrayList<String>();
+        spinnerList.add("Groups");
+        spinnerList.add("Home");
+        spinnerList.add("User Trends");
+        spinnerList.add("Scan a Receipt");
+
+        spinnerAdapter = new ArrayAdapter<>(this, R.layout.dropdown_item, spinnerList);
+
+        spinner.setAdapter(spinnerAdapter);
+
+        // Hooking up other pages to the spinner
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (spinner.getItemAtPosition(i).equals("Home")) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
+                if (spinner.getItemAtPosition(i).equals("User Trends")) {
+                    Intent intent = new Intent(getApplicationContext(), UserTrendsPage.class);
+                    startActivity(intent);
+                }
+                if (spinner.getItemAtPosition(i).equals("Scan a Receipt")) {
+                    Intent intent = new Intent(getApplicationContext(), ScanPage.class);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
 
         Intent intent = getIntent();
         String groupName = intent.getStringExtra("groupname");

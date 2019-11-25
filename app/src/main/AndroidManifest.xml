@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdvancedGroupPage"></activity>
+        <activity android:name=".ScanPage"></activity>
+        <activity android:name=".UserTrendsPage" />
+        <activity android:name=".AdvancedGroupPage" />
         <activity android:name=".NewGroupPage" />
         <activity android:name=".GroupPage" />
         <activity android:name=".MainActivity">
