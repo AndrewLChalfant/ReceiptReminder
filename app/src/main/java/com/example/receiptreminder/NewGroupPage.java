@@ -9,6 +9,9 @@ import android.widget.ListView;
 import android.widget.*;
 import java.util.ArrayList;
 
+/**
+ * Represents the new group page (user inputs the group name and member names).
+ */
 public class NewGroupPage extends AppCompatActivity {
 
     private ListView membersList;

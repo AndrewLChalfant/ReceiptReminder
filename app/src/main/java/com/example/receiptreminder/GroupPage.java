@@ -10,10 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+/**
+ * Represents the group page.
+ */
 public class GroupPage extends AppCompatActivity {
 
     private ListView groupListView;

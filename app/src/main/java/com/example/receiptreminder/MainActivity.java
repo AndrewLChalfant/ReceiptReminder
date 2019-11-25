@@ -12,6 +12,9 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
+/**
+ * Home Page.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;

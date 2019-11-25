@@ -11,6 +11,9 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
+/**
+ * Where the user scans a receipt.
+ */
 public class ScanPage extends AppCompatActivity {
 
     private ArrayAdapter<String> spinnerAdapter;

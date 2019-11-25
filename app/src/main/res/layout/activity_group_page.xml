@@ -23,7 +23,7 @@
         android:layout_width="277dp"
         android:layout_height="56dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Reciept Reminder"
+        android:text="Receipt Reminder"
         android:textAlignment="center"
         android:textColor="#FFF"
         android:textSize="34sp"

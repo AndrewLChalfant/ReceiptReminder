@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.*;
 
+/**
+ * More in depth look at one particular group.
+ */
 public class AdvancedGroupPage extends AppCompatActivity {
 
     private String groupName;

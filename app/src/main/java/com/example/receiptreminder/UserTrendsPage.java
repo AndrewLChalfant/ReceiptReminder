@@ -11,6 +11,9 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
+/**
+ * User views user trends.
+ */
 public class UserTrendsPage extends AppCompatActivity {
 
     private ArrayAdapter<String> spinnerAdapter;
