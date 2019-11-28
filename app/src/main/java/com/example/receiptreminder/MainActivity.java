@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-
+import android.widget.ImageView;
 import java.util.ArrayList;
 
 /**
@@ -62,12 +62,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        ImageView img = findViewById(R.id.imageView8);
 
-        Button goToGroups = findViewById(R.id.groups_button);
+        Button goToGroups = findViewById(R.id.scan_new_receipt_button);
         goToGroups.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), GroupPage.class);
+                Intent intent = new Intent(getApplicationContext(), ScanPage.class);
                 startActivity(intent);
             }
         });
