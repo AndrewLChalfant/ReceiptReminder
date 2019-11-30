@@ -90,5 +90,7 @@ public class NewGroupPage extends AppCompatActivity {
         listItems.add(name);
         adapter.notifyDataSetChanged();
 
+        memberName.getText().clear();
+
     }
 }

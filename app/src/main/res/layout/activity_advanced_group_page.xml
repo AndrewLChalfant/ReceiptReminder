@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#84AAA6"
+    android:background="#FDFDFD"
     tools:context=".AdvancedGroupPage">
 
     <Spinner
@@ -41,7 +41,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:background="@drawable/list_view_shape"
+        />
 
     <TextView
         android:id="@+id/group_name_label"
@@ -49,6 +51,7 @@
         android:layout_height="61dp"
         android:layout_marginTop="52dp"
         android:textAlignment="center"
+        android:textColor="#142B27"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,10 +61,11 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="105dp"
-        android:layout_height="39dp"
+        android:layout_width="176dp"
+        android:layout_height="49dp"
         android:text="Members"
-        android:textSize="24sp"
+        android:textColor="#142B27"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.084"

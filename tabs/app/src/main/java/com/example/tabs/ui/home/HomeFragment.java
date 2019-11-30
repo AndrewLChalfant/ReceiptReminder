@@ -1,5 +1,6 @@
 package com.example.tabs.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +14,13 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.tabs.R;
+import com.example.tabs.ui.send.SendFragment;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -32,4 +35,12 @@ public class HomeFragment extends Fragment {
         });
         return root;
     }
+
+   // public void goToNext(View view){
+
+       // Intent intent = new Intent(getApplicationContext(), SendFragment.class);
+
+        //startActivity(intent);
+
+   // }
 }

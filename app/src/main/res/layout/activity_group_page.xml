@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#84AAA6"
+    android:background="#FFFFFF"
     tools:context=".GroupPage">
 
     <Spinner
@@ -41,14 +41,15 @@
         android:fontFamily="sans-serif"
         android:text="Group Shopping"
         android:textAlignment="center"
+        android:textColor="#142B27"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintHorizontal_bias="0.745"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.164" />
+        app:layout_constraintVertical_bias="0.166" />
 
     <Button
         android:id="@+id/new_group"
@@ -56,7 +57,7 @@
         android:layout_width="272dp"
         android:layout_height="49dp"
         android:layout_marginTop="2dp"
-
+        android:background="@drawable/group_button_shape"
         android:layout_marginBottom="556dp"
         android:fontFamily="sans-serif"
         android:onClick="newGroup"
@@ -80,10 +81,13 @@
         android:layout_height="414dp"
         android:layout_marginBottom="16dp"
         android:addStatesFromChildren="false"
-        android:background="#00FFFFFF"
+        android:background="@drawable/list_view_shape"
+        android:radius="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/new_group"
-        app:layout_constraintVertical_bias="0.325" />
+        app:layout_constraintVertical_bias="0.325"
+
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>
