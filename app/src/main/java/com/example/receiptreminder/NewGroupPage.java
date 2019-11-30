@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.*;
@@ -25,6 +26,7 @@ public class NewGroupPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_group_page);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         membersList = findViewById(R.id.members);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listItems);
         membersList.setAdapter(adapter);
