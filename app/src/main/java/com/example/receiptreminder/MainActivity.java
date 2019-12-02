@@ -3,7 +3,9 @@ package com.example.receiptreminder;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,6 +20,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
+    ImageView imageView8;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,16 +66,37 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        ImageView img = findViewById(R.id.imageView8);
+        //ImageView img = findViewById(R.id.imageView8);
 
-        Button goToGroups = findViewById(R.id.scan_new_receipt_button);
-        goToGroups.setOnClickListener(new View.OnClickListener() {
+        //Button goToGroups = findViewById(R.id.scan_new_receipt_button);
+        //goToGroups.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //        Intent intent = new Intent(getApplicationContext(), ScanPage.class);
+        //        startActivity(intent);
+        //    }
+        //});
+
+        // Create logic for camera button
+        Button Camera_Button;
+        Camera_Button = this.<Button>findViewById(R.id.scan_new_receipt_button);
+        ImageView imageView8 = findViewById(R.id.imageView8);
+
+        Camera_Button.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ScanPage.class);
-                startActivity(intent);
+            public void onClick(View view){
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 0);
             }
         });
+
+
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+        imageView8.setImageBitmap(bitmap);
+    }
 }

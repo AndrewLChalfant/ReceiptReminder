@@ -53,8 +53,8 @@ public class AdvancedGroupPage extends AppCompatActivity {
         spinnerList.add("Scan a Receipt");
 
         spinnerAdapter = new ArrayAdapter<>(this, R.layout.dropdown_item, spinnerList);
+        spinner.setAdapter(spinnerAdapter);;
 
-        spinner.setAdapter(spinnerAdapter);
 
         // Hooking up other pages to the spinner
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
