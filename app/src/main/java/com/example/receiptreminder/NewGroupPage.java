@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -17,10 +18,11 @@ public class NewGroupPage extends AppCompatActivity {
 
     private ListView membersList;
     private ArrayList<String> listItems = new ArrayList<String>();
-    private ArrayAdapter<String> adapter;
+    private CustomAdapter adapter;
     private ArrayAdapter<String> spinnerAdapter;
     private Spinner spinner;
     private ArrayList<String> spinnerList;
+    private ArrayList<Integer> images;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,7 @@ public class NewGroupPage extends AppCompatActivity {
         setContentView(R.layout.activity_new_group_page);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         membersList = findViewById(R.id.members);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listItems);
+        adapter = new CustomAdapter();
         membersList.setAdapter(adapter);
         spinner = findViewById(R.id.spinner);
 
@@ -89,10 +91,33 @@ public class NewGroupPage extends AppCompatActivity {
         EditText memberName = findViewById(R.id.memberName);
         String name = memberName.getText().toString();
 
+
         listItems.add(name);
         adapter.notifyDataSetChanged();
 
         memberName.getText().clear();
 
     }
+
+    class CustomAdapter extends BaseAdapter {
+        public int getCount() { return listItems.size(); }
+        public Object getItem(int position) {
+            return null;
+        }
+        public long getItemId(int position) {
+            return 0;
+        }
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = getLayoutInflater().inflate(R.layout.new_group_list_item, null);
+            TextView text = view.findViewById(R.id.title);
+            ImageView image = view.findViewById(R.id.avatar);
+
+            image.setImageResource(R.drawable.member_icon);
+            text.setText(listItems.get(position));
+
+            return view;
+        }
+    }
+
+
 }

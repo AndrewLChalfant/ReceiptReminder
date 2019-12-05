@@ -35,15 +35,16 @@
 
     <ListView
         android:id="@+id/group_members_list"
-        android:layout_width="368dp"
-        android:layout_height="398dp"
+        android:layout_width="363dp"
+        android:layout_height="429dp"
         android:layout_marginBottom="40dp"
+        android:background="@drawable/list_view_shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:background="@drawable/list_view_shape"
-        />
+        app:layout_constraintVertical_bias="0.104" />
 
     <TextView
         android:id="@+id/group_name_label"
@@ -61,15 +62,15 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="176dp"
-        android:layout_height="49dp"
+        android:layout_width="105dp"
+        android:layout_height="30dp"
         android:text="Members"
         android:textColor="#142B27"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.273" />
+        app:layout_constraintVertical_bias="0.235" />
 </androidx.constraintlayout.widget.ConstraintLayout>

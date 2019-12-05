@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -19,10 +23,11 @@ import java.util.ArrayList;
 public class GroupPage extends AppCompatActivity {
 
     private ListView groupListView;
-    private HashMap<String, ArrayList<String>> groupMap;
+    private static HashMap<String, ArrayList<String>> groupMap = new HashMap<>();
     private static ArrayList<String> groups = new ArrayList<String>();
+    private static ArrayList<ArrayList<String>> groupMembers = new ArrayList<>();
     private ArrayList<String> spinnerList;
-    private ArrayAdapter<String> adapter;
+    private static CustomAdapter adapter;
     private ArrayAdapter<String> spinnerAdapter;
     private Spinner spinner;
 
@@ -30,9 +35,8 @@ public class GroupPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_page);
-        groupMap = new HashMap<String, ArrayList<String>>();
         groupListView = findViewById(R.id.groupList);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, groups);
+        adapter = new CustomAdapter();
         groupListView.setAdapter(adapter);
         spinner = findViewById(R.id.spinner);
 
@@ -84,16 +88,19 @@ public class GroupPage extends AppCompatActivity {
             }
             groupMap.put(groupName, members);
             groups.add(groupName);
+            groupMembers.add(members);
             adapter.notifyDataSetChanged();
         }
 
         groupListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                String groupName = (String) groupListView.getItemAtPosition(position);
+                // Does not get the name
+                TextView groupName = (TextView) groupListView.getItemAtPosition(position);
+                System.out.println(groupName.getText());
                 Intent advancedGroupPage = new Intent(getApplicationContext(), AdvancedGroupPage.class);
-                advancedGroupPage.putExtra("groupName", groupName);
-                ArrayList<String> groupMembers = groupMap.get(groupName);
+                advancedGroupPage.putExtra("groupName", groupName.getText());
+                ArrayList<String> groupMembers = groupMap.get(groupName.getText());
                 for (int i = 0; i < groupMembers.size(); i++) {
                     advancedGroupPage.putExtra("" + i, groupMembers.get(i));
                 }
@@ -106,5 +113,39 @@ public class GroupPage extends AppCompatActivity {
         // Going to the new Group page
         Intent intent = new Intent(getApplicationContext(), NewGroupPage.class);
         startActivity(intent);
+    }
+
+    class CustomAdapter extends BaseAdapter {
+        public int getCount() { return groups.size(); }
+        public Object getItem(int position) {
+            return groupListView.getChildAt(position).findViewById(R.id.group_name);
+        }
+        public long getItemId(int position) {
+            return 0;
+        }
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = getLayoutInflater().inflate(R.layout.group_list_item, null);
+            TextView text = view.findViewById(R.id.group_name);
+            ImageView image = view.findViewById(R.id.group_icon);
+            TextView members = view.findViewById(R.id.members);
+            ArrayList<String> membersList = groupMembers.get(position);
+
+            String memberString = "";
+
+            for (int i = 0; i < membersList.size(); i++) {
+                if (i == membersList.size() - 1) {
+                    memberString += membersList.get(i);
+                } else {
+                    memberString += membersList.get(i) + ", ";
+                }
+            }
+
+
+            image.setImageResource(R.drawable.group_icon);
+            text.setText(groups.get(position));
+            members.setText(memberString);
+
+            return view;
+        }
     }
 }
