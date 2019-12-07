@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anychart.AnyChart;
@@ -16,6 +17,7 @@ import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.charts.Cartesian;
 import com.anychart.charts.Pie;
+import com.anychart.core.Text;
 import com.anychart.core.cartesian.series.Column;
 import com.anychart.core.cartesian.series.Line;
 import com.anychart.data.Mapping;
@@ -81,6 +83,7 @@ public class UserTrendsPage extends AppCompatActivity {
 
             }
         });
+        TextView tv = findViewById(R.id.averageText);
         //setContentView(R.layout.activity_user_trends_page);
 
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
@@ -92,7 +95,6 @@ public class UserTrendsPage extends AppCompatActivity {
         cartesian.crosshair().enabled(true);
         cartesian.crosshair()
                 .yLabel(true)
-                // TODO ystroke
                 .yStroke((Stroke) null, null, null, (String) null, (String) null);
 
         cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
@@ -104,14 +106,43 @@ public class UserTrendsPage extends AppCompatActivity {
 
         //CREATE DUMMY DATA
         List<String> temp = new ArrayList<>();
+        List<String> temp2 = new ArrayList<>();
+
         Random rand = new Random();
+        int total = 0;
 
         for (int i=1; i <= 12; i++) {
-            String val = rand.nextInt(1000) + "";
-            temp.add(i + "/1," + val);
+            int val = rand.nextInt(600);
+            String val2 = val + "";
+            temp.add(i + "/1," + val2);
+
+            int tempVal = val  - rand.nextInt(300);
+            if (tempVal < 0) {
+                tempVal = 0;
+            }
+            temp2.add(i + "/1," + (tempVal + ""));
+
+            total+= val;
+            int r = rand.nextInt(2);
+            if (r == 1) {
+                val -= rand.nextInt(200);
+            } else {
+                val += rand.nextInt(200);
+            }
+            total += val;
+            temp.add(i + "/15," + val + "");
+            int tempVal2 = val  - rand.nextInt(300);
+            if (tempVal2 < 0) {
+                tempVal2 = 0;
+            }
+            temp2.add(i + "/15," + (tempVal2 + ""));
+
+
         }
         //CONVERT DATA POINTS
         List<DataEntry> seriesData = new ArrayList<>();
+        List<DataEntry> seriesData2 = new ArrayList<>();
+
         for (String a : temp) {
             String[] split = a.split(",");
             String date = split[0];
@@ -119,13 +150,29 @@ public class UserTrendsPage extends AppCompatActivity {
             seriesData.add(new CustomDataEntry(date, val));
         }
 
+        for (String b : temp2) {
+            String[] split = b.split(",");
+            String date = split[0];
+            Integer val = Integer.parseInt(split[1]);
+            seriesData2.add(new CustomDataEntry(date, val));
+        }
+
         //seriesData.add(new CustomDataEntry("2009", 12.0, 22.5, 8.9)); //extend for multiple lines
 
         Set set = Set.instantiate();
+        Set set2 = Set.instantiate();
+
         set.data(seriesData);
+        set2.data(seriesData2);
+
         Mapping series1Mapping = set.mapAs("{ x: 'x', value: 'value' }");
+        Mapping series2Mapping = set2.mapAs("{ x: 'x', value: 'value' }");
+
         Line series1 = cartesian.line(series1Mapping);
+        Line series2 = cartesian.line(series2Mapping);
+
         series1.name("Total Spending");
+        series2.name("Example Spending Category");
 
         series1.hovered().markers().enabled(true);
         series1.hovered().markers()
@@ -137,12 +184,23 @@ public class UserTrendsPage extends AppCompatActivity {
                 .offsetX(5d)
                 .offsetY(5d);
 
+        series2.hovered().markers().enabled(true);
+        series2.hovered().markers()
+                .type(MarkerType.CIRCLE)
+                .size(4d);
+        series2.tooltip()
+                .position("right")
+                .anchor(Anchor.LEFT_CENTER)
+                .offsetX(5d)
+                .offsetY(5d);
 
         cartesian.legend().enabled(true);
         cartesian.legend().fontSize(13d);
         cartesian.legend().padding(0d, 0d, 10d, 0d);
 
         anyChartView.setChart(cartesian);
+        tv.setText("Average Spending Per Trip: $" + total/30);
+
 
     }
 
