@@ -3,13 +3,15 @@ package com.example.receiptreminder;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-
+import android.widget.ImageView;
 import java.util.ArrayList;
 
 /**
@@ -62,15 +64,35 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //ImageView img = findViewById(R.id.imageView8);
 
-        Button goToGroups = findViewById(R.id.groups_button);
-        goToGroups.setOnClickListener(new View.OnClickListener() {
+        //Button goToGroups = findViewById(R.id.scan_new_receipt_button);
+        //goToGroups.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //       Intent intent = new Intent(getApplicationContext(), ScanPage.class);
+        //        startActivity(intent);
+        //    }
+        //});
+        Button Camera_Button;
+        Camera_Button = findViewById(R.id.scan_new_receipt_button);
+        ImageView imageView = findViewById(R.id.imageView8);
+
+        Camera_Button.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), GroupPage.class);
-                startActivity(intent);
+            public void onClick(View view){
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if(intent.resolveActivity(getPackageManager())!=null) {
+                    startActivityForResult(intent, 0);
+                }
             }
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // This runs after the camera returns an image
+        Intent intent = new Intent(getApplicationContext(), UserTrendsPage.class);
+        startActivity(intent);
+    }
 }

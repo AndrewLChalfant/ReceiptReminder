@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF84AAA6"
+    android:background="#FCFCFC"
     tools:context=".NewGroupPage">
 
     <Spinner
@@ -38,13 +38,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Group"
+        android:textColor="#142B27"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintVertical_bias="0.127" />
 
     <EditText
         android:id="@+id/editText"
@@ -53,27 +54,29 @@
         android:layout_marginTop="23dp"
         android:layout_marginBottom="15dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Group Name"
+        android:hint="Group Name"
+        android:inputType="text"
+        android:textColor="#142B27"
         app:layout_constraintBottom_toTopOf="@+id/add_member"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.242"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newGroupLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/newGroupLabel"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/add_member"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="23dp"
+        android:layout_width="121dp"
+        android:layout_height="39dp"
+        android:background="@drawable/group_button_shape"
         android:onClick="newMember"
         android:text="Add Member"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/memberName"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.332" />
 
     <EditText
         android:id="@+id/memberName"
@@ -81,11 +84,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="21dp"
         android:ems="10"
+        android:hint="Name"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:textColor="#142B27"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.848"
+        app:layout_constraintHorizontal_bias="0.242"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText"
         app:layout_constraintVertical_bias="0.0" />
@@ -95,12 +99,16 @@
         android:layout_width="394dp"
         android:layout_height="251dp"
         android:layout_marginTop="58dp"
+        android:background="@drawable/list_view_shape"
+        android:cacheColorHint="#142B27"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/memberName"
-        app:layout_constraintVertical_bias="0.011" />
+        app:layout_constraintVertical_bias="0.194"
+
+        />
 
     <Button
         android:id="@+id/done"
@@ -111,8 +119,8 @@
         android:text="Done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintHorizontal_bias="0.886"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/members"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.372" />
 </androidx.constraintlayout.widget.ConstraintLayout>
