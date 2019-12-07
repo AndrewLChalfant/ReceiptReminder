@@ -116,7 +116,7 @@ public class UserTrendsPage extends AppCompatActivity {
             String val2 = val + "";
             temp.add(i + "/1," + val2);
 
-            int tempVal = val  - rand.nextInt(300);
+            int tempVal = val  - 20 - rand.nextInt(300);
             if (tempVal < 0) {
                 tempVal = 0;
             }
@@ -131,7 +131,7 @@ public class UserTrendsPage extends AppCompatActivity {
             }
             total += val;
             temp.add(i + "/15," + val + "");
-            int tempVal2 = val  - rand.nextInt(300);
+            int tempVal2 = val  - 20 - rand.nextInt(300);
             if (tempVal2 < 0) {
                 tempVal2 = 0;
             }

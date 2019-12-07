@@ -64,9 +64,11 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
+        android:text="test"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/colorPrimary"
         android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
