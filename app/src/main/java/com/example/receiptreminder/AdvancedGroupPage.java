@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.ArrayList;
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -70,8 +71,10 @@ public class AdvancedGroupPage extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if (spinner.getItemAtPosition(i).equals("Scan a Receipt")) {
-                    Intent intent = new Intent(getApplicationContext(), ScanPage.class);
-                    startActivity(intent);
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    if(intent.resolveActivity(getPackageManager())!=null) {
+                        startActivityForResult(intent, 0);
+                    }
                 }
             }
 
@@ -100,5 +103,13 @@ public class AdvancedGroupPage extends AppCompatActivity {
 
             return view;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // This runs after the camera returns an image
+        Intent intent = new Intent(getApplicationContext(), ScanPage.class);
+        startActivity(intent);
+        super.onActivityResult(requestCode, requestCode, data);
     }
 }

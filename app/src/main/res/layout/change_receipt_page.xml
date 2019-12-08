@@ -5,24 +5,10 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/cancel"
-        android:layout_width="174dp"
-        android:layout_height="51dp"
-        android:background="@drawable/group_button_shape"
-        android:fontFamily="sans-serif"
-        android:text="Cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
-
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="414dp"
-        android:layout_height="57dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:text="Receipt Reminder"
         android:textAlignment="center"
@@ -33,6 +19,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/group_button_shape"
+        android:fontFamily="sans-serif"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.587" />
 
     <EditText
         android:id="@+id/item_price_input"
@@ -104,16 +104,16 @@
 
     <Button
         android:id="@+id/save_changes"
-        android:layout_width="174dp"
-        android:layout_height="51dp"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:background="@drawable/group_button_shape"
         android:fontFamily="sans-serif"
         android:text="Save Changes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.587" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

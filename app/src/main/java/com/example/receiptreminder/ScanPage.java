@@ -25,9 +25,6 @@ import java.time.LocalDateTime;
  */
 public class ScanPage extends AppCompatActivity {
 
-    private ArrayAdapter<String> spinnerAdapter;
-    private Spinner spinner;
-    private ArrayList<String> spinnerList;
     private ListView receiptList;
     public static CustomAdapter adapter;
     private ArrayList<String> products;
@@ -119,43 +116,6 @@ public class ScanPage extends AppCompatActivity {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         date = formatter.format(LocalDateTime.now());
         totalPriceAndDate.setText(date);
-
-        spinner = findViewById(R.id.spinner);
-
-        // Setting up spinner
-        spinnerList = new ArrayList<String>();
-        spinnerList.add("Scan a Receipt");
-        spinnerList.add("Groups");
-        spinnerList.add("Home");
-        spinnerList.add("User Trends");
-
-        spinnerAdapter = new ArrayAdapter<>(this, R.layout.dropdown_item, spinnerList);
-
-        spinner.setAdapter(spinnerAdapter);
-
-        // Hooking up other pages to the spinner
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (spinner.getItemAtPosition(i).equals("Home")) {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                }
-                if (spinner.getItemAtPosition(i).equals("User Trends")) {
-                    Intent intent = new Intent(getApplicationContext(), UserTrendsPage.class);
-                    startActivity(intent);
-                }
-                if (spinner.getItemAtPosition(i).equals("Groups")) {
-                    Intent intent = new Intent(getApplicationContext(), GroupPage.class);
-                    startActivity(intent);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
 
         Intent intent = getIntent();
         if (intent.getStringExtra("Change") != null)

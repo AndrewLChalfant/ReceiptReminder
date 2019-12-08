@@ -7,31 +7,36 @@
     android:background="#FCFCFC"
     tools:context=".NewGroupPage">
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="136dp"
-        android:layout_height="55dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="277dp"
-        android:layout_height="56dp"
+        android:layout_width="247dp"
+        android:layout_height="42dp"
+
         android:background="@color/colorPrimaryDark"
         android:text="Receipt Reminder"
         android:textAlignment="center"
         android:textColor="#FFF"
-        android:textSize="34sp"
+        android:textSize="30sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/spinner"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="276dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.001" />
 
     <TextView
         android:id="@+id/newGroupLabel"
@@ -66,8 +71,8 @@
 
     <Button
         android:id="@+id/add_member"
-        android:layout_width="121dp"
-        android:layout_height="39dp"
+        android:layout_width="108dp"
+        android:layout_height="32dp"
         android:background="@drawable/group_button_shape"
         android:onClick="newMember"
         android:text="Add Member"
@@ -96,8 +101,8 @@
 
     <ListView
         android:id="@+id/members"
-        android:layout_width="394dp"
-        android:layout_height="251dp"
+        android:layout_width="331dp"
+        android:layout_height="254dp"
         android:layout_marginTop="58dp"
         android:background="@drawable/list_view_shape"
         android:cacheColorHint="#142B27"

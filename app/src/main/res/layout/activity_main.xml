@@ -39,13 +39,11 @@
         android:layout_width="100dp"
         android:layout_height="105dp"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintHorizontal_bias="0.867"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.963"
         app:srcCompat="@drawable/receipt_icon" />
 
     <ImageView
@@ -53,13 +51,11 @@
         android:layout_width="100dp"
         android:layout_height="105dp"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.961"
         app:srcCompat="@drawable/receipt_icon" />
 
     <View
@@ -86,7 +82,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        android:text="Scan New Reciept"
+        android:text="Scan New Receipt"
         android:textColor="#142B27"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -99,25 +95,30 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="277dp"
-        android:layout_height="56dp"
+        android:layout_width="247dp"
+        android:layout_height="42dp"
+
         android:background="@color/colorPrimaryDark"
         android:text="Receipt Reminder"
         android:textAlignment="center"
         android:textColor="#FFF"
-        android:textSize="34sp"
+        android:textSize="30sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/spinner"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/dropdownMenu"
-        android:layout_width="135dp"
-        android:layout_height="55dp"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="276dp"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -162,13 +163,11 @@
         android:layout_width="100dp"
         android:layout_height="105dp"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.014"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.961"
         app:srcCompat="@drawable/receipt_icon" />
 
     <TextView
@@ -192,7 +191,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="7dp"
         android:text="Recent Receipts"
-        android:textSize="24sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"

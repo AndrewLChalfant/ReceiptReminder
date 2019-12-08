@@ -3,6 +3,7 @@ package com.example.receiptreminder;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.content.Intent;
 import android.view.ViewGroup;
@@ -64,8 +65,10 @@ public class GroupPage extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if (spinner.getItemAtPosition(i).equals("Scan a Receipt")) {
-                    Intent intent = new Intent(getApplicationContext(), ScanPage.class);
-                    startActivity(intent);
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    if(intent.resolveActivity(getPackageManager())!=null) {
+                        startActivityForResult(intent, 0);
+                    }
                 }
             }
 
@@ -147,5 +150,13 @@ public class GroupPage extends AppCompatActivity {
 
             return view;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // This runs after the camera returns an image
+        Intent intent = new Intent(getApplicationContext(), ScanPage.class);
+        startActivity(intent);
+        super.onActivityResult(requestCode, requestCode, data);
     }
 }

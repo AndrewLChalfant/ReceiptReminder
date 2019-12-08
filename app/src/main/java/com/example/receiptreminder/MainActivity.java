@@ -77,8 +77,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if (spinner.getItemAtPosition(i).equals("Scan a Receipt")) {
-                    Intent intent = new Intent(getApplicationContext(), ScanPage.class);
-                    startActivity(intent);
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    if(intent.resolveActivity(getPackageManager())!=null) {
+                        startActivityForResult(intent, 0);
+                    }
                 }
 
             }
