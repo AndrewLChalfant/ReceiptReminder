@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 /**
@@ -20,6 +22,11 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
+    private static TextView dateOne;
+    private static TextView dateTwo;
+    private static TextView dateThree;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +34,23 @@ public class MainActivity extends AppCompatActivity {
 
         // Spinner
         spinner = findViewById(R.id.dropdownMenu);
+
+        dateOne = findViewById(R.id.date_1);
+        dateTwo = findViewById(R.id.date_2);
+        dateThree = findViewById(R.id.date_3);
+
+        Intent intent = getIntent();
+        if (intent.getStringExtra("Date") != null)
+        {
+            dateThree.setText(dateTwo.getText().toString());
+            dateTwo.setText(dateOne.getText().toString());
+            dateOne.setText(intent.getStringExtra("Date"));
+        }
+        else {
+            dateOne.setText("2019/11/30");
+            dateTwo.setText("2019/11/19");
+            dateThree.setText("2019/11/01");
+        }
 
         ArrayList<String> menuItems = new ArrayList<String>();
         menuItems.add("Home");
@@ -87,12 +111,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // This runs after the camera returns an image
-        Intent intent = new Intent(getApplicationContext(), UserTrendsPage.class);
+        Intent intent = new Intent(getApplicationContext(), ScanPage.class);
         startActivity(intent);
+        super.onActivityResult(requestCode, requestCode, data);
     }
 }
