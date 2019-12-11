@@ -209,7 +209,7 @@ public class UserTrendsPage extends AppCompatActivity {
 
     public void monthButton(View v) {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
-        Toast.makeText(getApplicationContext(), "Month Click", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "This button would rescale graph to show a single month.", Toast.LENGTH_SHORT).show();
         anyChartView.getBaseline();
     }
 
